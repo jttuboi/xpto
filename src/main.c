@@ -39,16 +39,24 @@ vector* split_string(char*command, char* delimiters) {
 
 int main (int argc, char** argv)
 {
+    int quit = 0;
+    char* command = (char*)malloc(100*sizeof(char));
     int i;
+    vector* tokens;
     
-    char test[] = {"ds221ds dsd sdsd  ffwdw  b c d t e s f g r w"};
-    vector* tokens = split_string(test, " \n");
-    
-    for(i = 0; i < tokens->size; i++) {
-        printf("%s\n", (char*)tokens->content[i]);
-    }
-    
-    delete_vector(tokens);
+    while (!quit) {
+        printf("B1> ");
+        fgets(command, 100, stdin);
+        
+        tokens = split_string(command, " \n");
+        
+        for(i = 0; i < tokens->size; i++) {
+            printf("%s\n", (char*)tokens->content[i]);
+        }
+        
+        delete_vector(tokens);       
+    }    
+
     
     return 0;
 }
