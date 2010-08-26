@@ -1,0 +1,1 @@
+Comando para testar: gcc -o test -Wall split.c vector.c
