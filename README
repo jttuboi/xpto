@@ -1,1 +1,5 @@
 Comando para testar: gcc -o test -Wall split.c vector.c
+
+git add .
+git commit -m 'comentario'
+git push origin branch_que_vc_quer
