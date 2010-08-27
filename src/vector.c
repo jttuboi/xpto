@@ -1,11 +1,9 @@
 #include "vector.h"
 
 void push_back(void* element, vector* v) {
-    if (v->size == v->max - 1) {
-        v->max += 10;
-        v->content = (void**)realloc(v->content, v->max*sizeof(void*));
+    if (v->size < v->max) {
+        v->content[v->size++] = element;
     }
-    v->content[v->size++] = element;
 }
 
 size_t size(vector* v) {
@@ -67,7 +65,7 @@ vector* new_vector() {
     int i;
     
     vector* v = (vector*)malloc(sizeof(vector));
-    v->content = (void**)realloc(NULL, 10*sizeof(void*));
+    v->content = (void**)malloc(20*sizeof(void*));
     v->max = 20;
     v->size = 0;
     
