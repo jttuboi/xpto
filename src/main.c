@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <unistd.h>
+
 #include "vector.h"
 
 vector* split_string(char*command, char* delimiters) {
@@ -37,11 +39,27 @@ vector* split_string(char*command, char* delimiters) {
     return tokens;
 }
 
-int main (int argc, char** argv)
-{
+void set_path(vector* command, char** paths) {
+
+}
+
+void execute(vector* cmd, char**envp) {
+    int e;
+    if (fork() == 0) {
+        e = execve((char*)cmd->content[0], (char**)(cmd->content), envp);
+        if ((e < 0)&&(cmd->content[0] != NULL)) {
+            printf("-B1: %s: command not found", (char*)cmd->content[0]);
+            exit(1);
+        }        
+    } else {
+        //espera acabar: http://www.opengroup.org/onlinepubs/009695399/functions/wait.html
+        wait(NULL);
+    }
+}
+
+int main (int argc, char** argv, char** envp) {
     int quit = 0;
     char* command = (char*)malloc(100*sizeof(char));
-    int i;
     vector* tokens;
     
     while (!quit) {
@@ -50,9 +68,9 @@ int main (int argc, char** argv)
         
         tokens = split_string(command, " \n");
         
-        for(i = 0; i < tokens->size; i++) {
-            printf("%s\n", (char*)tokens->content[i]);
-        }
+        set_path(tokens, NULL);
+        
+        execute(tokens, envp);        
         
         delete_vector(tokens);       
     }    
