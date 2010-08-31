@@ -5,4 +5,4 @@ run:
 	./bin/b1
 
 clean:
-	rm *~ bin/* include/*~ src/*~ 2> /dev/null
+	ls *~ bin/* include/*~ src/*~ 2> /dev/null | xargs rm -rf 
