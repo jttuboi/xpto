@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
-
 #include <unistd.h>
 
 #include "vector.h"
@@ -30,61 +29,84 @@ vector* split_string(char*command, char* delimiters) {
         push_back(token, tokens);
        
        //aloca memória para guardar o token encontrado
-        token_position = strtok(NULL, " \n");
+        token_position = strtok(NULL, delimiters);
         if (token_position != NULL) {
             token = (char*)malloc(sizeof(char)*strlen(command));
             strcpy(token, token_position);
         }
     }
+        
+
     
     return tokens;
 }
 
-void execute(vector* tokens, char *path, char **envp) {
-  	int e, i;
-		vector *paths = split_string(path, ":");
-		char *cmd = (char *) element(tokens, 0);
-		char *abs_path = (char *) malloc(100*sizeof(char));
+int execute(vector* tokens, char *path, char **envp) {
+  	int i;
+    char *cmd;
+    vector *paths;
+    char *abs_path;
+    int success;
+    
+	if (fork() == 0) {
+        //Primeiro tenta-se executar o comando passado considerando que ele já possui o caminho na string:
+        execve((char *)element(tokens, 0), (char**)(tokens->content), envp);
+	
+	    //Se execve terminou sem sucesso, o programa prossegue, caso contrário, após ele a imagem de outro programa
+	    //estará sendo executada ao invés dessa
+    
+        //Divide o PATH em substrings com os caminhos para tentar executar o programa associado a elas;	
+        paths = split_string(path, ":");
+    
+    	cmd = (char *) element(tokens, 0);
+    	abs_path = (char *) malloc(100*sizeof(char));
 
-		i = 0; e = 0;
-		if (fork() == 0) {
-				while (i < paths->size) {
-						strcat(abs_path, (char *)element(paths, i));
-						strcat(abs_path, "/");
-						strcat(abs_path, cmd);
-        		e = execve(abs_path, (char**)(tokens->content), envp);
-      			if ((e == -1)&&(tokens->content[0] != NULL)) {
-        				i++;
-    				} else {
-       		 			//espera acabar: http://www.opengroup.org/onlinepubs/009695399/functions/wait.html
-        				wait(NULL);
-    				}
-				}
+        for(i = 0; i < paths->size; i++) {
+    		strcpy(abs_path, (char *)element(paths, i));
+			strcat(abs_path, "/");
+	        strcat(abs_path, cmd);
+			execve(abs_path, (char**)(tokens->content), envp);
 		}
-		if ( e == -1) { 
-				printf("-B1: %s: command not found\n", (char*)tokens->content[0]);
-    		exit(1);
-		}
-
+		
+        free(abs_path);
+		//caso o programa tenha chegado até aqui, nao houve sucesso na execucao do programa junto com o PATH, então ele
+		//sem sucesso:
+		printf("-B1: %s: command not found\n", (char*)tokens->content[0]);
+		exit(1);
+	} else {
+   		//espera acabar: http://www.opengroup.org/onlinepubs/009695399/functions/wait.html
+    	wait(&success);
+	}
+	
+	//retorna se o programa filho executou com sucesso (convencionado 1 para sucesso)
+    return !success;
 }
 
 int main (int argc, char** argv, char** envp) {
-    int quit = 0;
+    int quit;
     char* command = (char*)malloc(100*sizeof(char));
-		char *path = getenv("PATH");
+	char *path = getenv("PATH");
     vector* tokens;
     
+    quit = 0;
     while (!quit) {
-        printf("\nB1> ");
+        printf("B1> ");
         fgets(command, 100, stdin);
         
         tokens = split_string(command, " \n");
         
-        execute(tokens, path, envp);        
-        
+        if (tokens->size != 0) {
+            if (strcmp(element(tokens, 0), "exit") != 0) {
+                execute(tokens, path, envp);     
+            } else {
+                quit = 1;
+            }
+        }
+
         delete_vector(tokens);       
     }    
 
+    printf("logout\n\n[Process completed]\n");
     
     return 0;
 }
