@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
+
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
     void** content;
