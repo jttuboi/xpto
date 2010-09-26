@@ -48,7 +48,7 @@ void insert(vector* v, size_t pos, void* el) {
   }
 }
 
-void erase(vector* v, size_t pos, void* el) {
+void erase(vector* v, size_t pos) {
   int i;
   if (v->size < pos) {
     free(v->content[pos]);
@@ -65,8 +65,8 @@ vector* new_vector() {
   int i;
     
   vector* v = (vector*)malloc(sizeof(vector));
-  v->content = (void**)malloc(20*sizeof(void*));
-  v->max = 20;
+  v->content = (void**)malloc(100*sizeof(void*));
+  v->max = 100;
   v->size = 0;
     
   for (i = 0; i < v->max; i++)

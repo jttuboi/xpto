@@ -80,11 +80,18 @@ int execute(vector* tokens, char *path, char **envp) {
   return !success;
 }
 
+BOOL is_background(vector *command) {
+  return !strcmp(back(command), "&");
+}
+
 int main (int argc, char** argv, char** envp) {
   int quit;
-  char* command = (char*)malloc(100*sizeof(char));
+  char *command = (char*)malloc(100*sizeof(char));
   char *path = getenv("PATH");
-  vector* tokens;
+  vector *tokens;
+  vector *jobs = new_vector();
+  job *j;
+  process *p;
     
   quit = 0;
   while (!quit) {
@@ -94,8 +101,20 @@ int main (int argc, char** argv, char** envp) {
     tokens = split_string(command, " \n");
         
     if (tokens->size != 0) {
-      if (strcmp(element(tokens, 0), "exit") != 0) {
-        execute(tokens, path, envp);     
+      if ((strcmp(element(tokens, 0), "exit") != 0)&&(strcmp(element(tokens, 0), "quit") != 0)) {
+        
+        j = new_job(tokens);
+
+        jobs->push_back(j);
+        
+        if (is_background(tokens)) {  
+        
+
+          execute(j->process, path, envp);  
+        } else {
+
+          execute(p, path, envp);  
+        }
       } else {
         quit = 1;
       }

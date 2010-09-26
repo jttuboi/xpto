@@ -5,7 +5,6 @@
 #include "type.h"
 
 typedef struct {
-  struct process *next;       /* proximo processo na pipeline */
   char **argv;                /* argumentos a serem passados para o processo */
   pid_t pid;                  /* process ID */
   char completed;             /* true se processo tiver terminado */
@@ -13,15 +12,23 @@ typedef struct {
   int status;                 /* valor do status */
 } process;
 
-typedef struct job {
-  struct job *next;           /* proximo job ativo */
-  //char *command;              /* command line, used for messages */
-  process *first_process;     /* lista dos processos nesse job */
+typedef struct {
+  //struct job *next;           /* proximo job ativo */
+  process *process;           /* processo nesse job */
   pid_t pgid;                 /* process group ID */
-  char notified;              /* true se usuario pediu para parar o job */
-  //struct termios tmodes;      /* saved terminal modes */
-  int stdin, stdout, stderr;  /* canais padrao de E/S */
+  //char notified;              /* true se usuario pediu para parar o job */
 } job;
+
+job *new_job(vector *tokens) {
+  process *p = (process *)malloc(sizeof(process));
+  job *j = (job *)malloc(sizeof(job));
+  
+  j->process = p;
+
+  p->argv = (char **)tokens->content;
+  p->stopped = FALSE;
+  p->completed = FALSE;
+}
 
 /* busca um job ativo com o pgid dado. */
 job *find_job (pid_t pgid) {
@@ -38,7 +45,7 @@ job *find_job (pid_t pgid) {
 BOOL job_is_stopped (job *j) {
   process *p;
      
-  for (p = j->first_process; p; p = p->next)
+  for (p = j->first_process; p != NULL; p = p->next)
     if (!p->completed && !p->stopped)
       return FALSE;
   return TRUE;

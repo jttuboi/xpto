@@ -1,0 +1,53 @@
+// !$*UTF8*$!
+{
+	5320326E124FF8E10032C196 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 5320327B124FF8E10032C196 /* xpto */;
+		activeTarget = 53203278124FF8E10032C196 /* xpto */;
+		codeSenseManager = 53203272124FF8E10032C196 /* Code sense */;
+		executables = (
+			5320327B124FF8E10032C196 /* xpto */,
+		);
+		ignoreBreakpointsInProjectsDict = {
+		};
+		userBuildSettings = {
+		};
+	};
+	53203272124FF8E10032C196 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	53203278124FF8E10032C196 /* xpto */ = {
+		activeExec = 0;
+		executables = (
+			5320327B124FF8E10032C196 /* xpto */,
+		);
+	};
+	5320327B124FF8E10032C196 /* xpto */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = xpto;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+}
