@@ -1,0 +1,211 @@
+Txpto
+v7
+r0
+t307306556.559576
+cCheck dependencies
+cCompileC build/xpto.build/Debug/xpto.build/Objects-normal/i386/vector.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/xpto.build/Debug/xpto.build/Objects-normal/i386/main.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto normal i386
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004BF4701900000000000000EE
+t1274310681
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004AC59C820000000000004174
+t1254464642
+s16756
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004AC59C820000000000002DF5
+t1254464642
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/string.h
+c000000004AC59C820000000000001731
+t1254464642
+s5937
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/sys/wait.h
+c000000004B90BBAB000000000000273C
+t1267776427
+s10044
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/unistd.h
+c000000004AC59C82000000000000563E
+t1254464642
+s22078
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto
+t1285613756
+s15540
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/main.o
+t1285613756
+s8912
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/vector.o
+t1285607213
+s6248
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/xpto.LinkFileList
+c000000004C9FE13400000000000000DC
+t1285546292
+s220
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/main.o
+t1285545648
+s8840
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/vector.o
+t1285545613
+s8284
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/xpto.LinkFileList
+c000000004C9FDBC100000000000000E0
+t1285544897
+s224
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/include/process.h
+c000000004CA0D8F3000000000000064B
+t1285609715
+s1611
+i"type.h"
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/include/process_operations.h
+c000000004CA0E8B30000000000000C9F
+t1285613747
+s3231
+i<stdlib.h>
+i<sys/wait.h>
+i<unistd.h>
+i"vector.h"
+i"tokenize.h"
+i"process.h"
+i"type.h"
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/include/tokenize.h
+c000000004C9FDB9B0000000000000432
+t1285544859
+s1074
+i<string.h>
+i<stdlib.h>
+i"vector.h"
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/include/type.h
+c000000004CA0C5B9000000000000005C
+t1285604793
+s92
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/include/vector.h
+c000000004CA0CF0A00000000000001E5
+t1285607178
+s485
+i<stdio.h>
+i<stdlib.h>
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c
+c000000004CA0D9520000000000000457
+t1285609810
+s1111
+i<stdio.h>
+i<string.h>
+i<stdlib.h>
+i<sys/wait.h>
+i<unistd.h>
+i"vector.h"
+i"tokenize.h"
+i"process.h"
+i"process_operations.h"
+i"type.h"
+
+N/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c
+c000000004CA0CF2200000000000005EF
+t1285607202
+s1519
+i"vector.h"
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies307306556#307306556#0(111"[WARN]warning: no rule to process file '$(PROJECT_DIR)/Makefile' of type sourcecode.make for architecture i3861(22@104"warning: no rule to process file '$(PROJECT_DIR)/Makefile' of type sourcecode.make for architecture i386307306556#18446744073709551615#0#0(1@0"0(0#1#0"8602124320#0"0#
+
+CCompileC build/xpto.build/Debug/xpto.build/Objects-normal/i386/main.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+s307306556.348472
+e307306556.457040
+r1
+xCompileC
+xbuild/xpto.build/Debug/xpto.build/Objects-normal/i386/main.o
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@66"Compile /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c307306556#307306556#0(0"0(0#0#58"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c8615081856#1358"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-generated-files.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-own-target-headers.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-all-target-headers.hmap -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-project-headers.hmap -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/include -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources/i386 -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources -c /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/main.o0#
+
+CCompileC build/xpto.build/Debug/xpto.build/Objects-normal/i386/vector.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+s307300013.048764
+e307300013.165178
+r1
+xCompileC
+xbuild/xpto.build/Debug/xpto.build/Objects-normal/i386/vector.o
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@68"Compile /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c307300013#307300013#0(0"0(0#0#60"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c8615357952#1362"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-generated-files.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-own-target-headers.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-all-target-headers.hmap -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-project-headers.hmap -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/include -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources/i386 -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources -c /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/vector.o0#
+
+CCompileC build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/main.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s307238448.171691
+e307238448.237237
+r1
+xCompileC
+xbuild/xpto.build/Debug/xpto.build/Objects-normal/x86_64/main.o
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c:59:9: warning: unused variable 'path' [-Wunused-variable]
+o   char *path = getenv("PATH");
+o         ^
+o/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c:63:12: warning: unused variable 'p' [-Wunused-variable]
+o   process *p;
+o            ^
+o2 warnings generated.
+lSLF07#2@66"Compile /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c307238448#307238448#0(326"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c:59:9: warning: unused variable 'path' [-Wunused-variable]   char *path = getenv("PATH");         ^/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c:63:12: warning: unused variable 'p' [-Wunused-variable]   process *p;            ^2 warnings generated.2(22@22"Unused variable 'path'307238448#0#117#0(6@58"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c307238442#59#9#0#0#17"unused variable *0(22@19"Unused variable 'p'307238448#160#115#0(6@58"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c307238442#63#12#0#0#17"unused variable *0(0#0#58"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c8606165184#1364"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-generated-files.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-own-target-headers.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-all-target-headers.hmap -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-project-headers.hmap -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/include -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources/x86_64 -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources -c /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/main.c -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/main.o0#
+
+CCompileC build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/vector.o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s307238413.793635
+e307238413.837851
+r1
+xCompileC
+xbuild/xpto.build/Debug/xpto.build/Objects-normal/x86_64/vector.o
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@68"Compile /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c307238413#307238413#0(0"0(0#0#60"/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c8614321024#1368"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fvisibility=hidden -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-generated-files.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-own-target-headers.hmap -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-all-target-headers.hmap -iquote /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/xpto-project-headers.hmap -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/include -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources/x86_64 -I/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/DerivedSources -c /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/src/vector.c -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/vector.o0#
+
+CLd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto normal i386
+s307306556.457151
+e307306556.559509
+r1
+xLd
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto
+xnormal
+xi386
+lSLF07#2@69"Link /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto307306556#307306556#0(0"0(0#0#0"8615699808#525"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/clang -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -filelist /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/i386/xpto.LinkFileList -mmacosx-version-min=10.6 -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto0#
+
+CLd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto normal x86_64
+s307238448.237346
+e307238448.290302
+r1
+xLd
+x/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto
+xnormal
+xx86_64
+lSLF07#2@69"Link /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto307238448#307238448#0(0"0(0#0#0"8614619744#529"    cd /Users/rafael/Documents/Grad/6Semestre/SO2/xpto    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/clang -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -F/Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug -filelist /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/xpto.build/Debug/xpto.build/Objects-normal/x86_64/xpto.LinkFileList -mmacosx-version-min=10.6 -o /Users/rafael/Documents/Grad/6Semestre/SO2/xpto/build/Debug/xpto0#
+

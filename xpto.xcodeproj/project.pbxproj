@@ -14,9 +14,8 @@
 		53203298124FF9920032C196 /* vector.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5320328D124FF9920032C196 /* vector.h */; };
 		53203299124FF9920032C196 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 5320328E124FF9920032C196 /* Makefile */; };
 		5320329A124FF9920032C196 /* README in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5320328F124FF9920032C196 /* README */; };
-		5320329B124FF9920032C196 /* .main.c.swo in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53203291124FF9920032C196 /* .main.c.swo */; };
-		5320329C124FF9920032C196 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 53203292124FF9920032C196 /* main.c */; };
 		5320329E124FF9920032C196 /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 53203294124FF9920032C196 /* vector.c */; };
+		53A406C3125011080053C8D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 53203292124FF9920032C196 /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +31,6 @@
 				53203297124FF9920032C196 /* type.h in CopyFiles */,
 				53203298124FF9920032C196 /* vector.h in CopyFiles */,
 				5320329A124FF9920032C196 /* README in CopyFiles */,
-				5320329B124FF9920032C196 /* .main.c.swo in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -45,11 +43,12 @@
 		5320328B124FF9920032C196 /* process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = process.h; sourceTree = "<group>"; };
 		5320328C124FF9920032C196 /* type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = type.h; sourceTree = "<group>"; };
 		5320328D124FF9920032C196 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
-		5320328E124FF9920032C196 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = SOURCE_ROOT; };
-		5320328F124FF9920032C196 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
-		53203291124FF9920032C196 /* .main.c.swo */ = {isa = PBXFileReference; lastKnownFileType = file; path = .main.c.swo; sourceTree = "<group>"; };
+		5320328E124FF9920032C196 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		5320328F124FF9920032C196 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		53203292124FF9920032C196 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		53203294124FF9920032C196 /* vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vector.c; sourceTree = "<group>"; };
+		53A406C5125012460053C8D4 /* tokenize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tokenize.h; sourceTree = "<group>"; };
+		53A40707125017810053C8D4 /* process_operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = process_operations.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,22 +65,10 @@
 		5320326C124FF8E10032C196 = {
 			isa = PBXGroup;
 			children = (
-				53203273124FF8E10032C196 /* Source */,
+				533673801250049E002DF609 /* Source */,
 				53203274124FF8E10032C196 /* Documentation */,
 				5320327A124FF8E10032C196 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		53203273124FF8E10032C196 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				53203288124FF9920032C196 /* bin */,
-				5320328A124FF9920032C196 /* include */,
-				5320328E124FF9920032C196 /* Makefile */,
-				5320328F124FF9920032C196 /* README */,
-				53203290124FF9920032C196 /* src */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		53203274124FF8E10032C196 /* Documentation */ = {
@@ -106,7 +93,7 @@
 				53203289124FF9920032C196 /* b1 */,
 			);
 			path = bin;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		5320328A124FF9920032C196 /* include */ = {
 			isa = PBXGroup;
@@ -114,19 +101,32 @@
 				5320328B124FF9920032C196 /* process.h */,
 				5320328C124FF9920032C196 /* type.h */,
 				5320328D124FF9920032C196 /* vector.h */,
+				53A406C5125012460053C8D4 /* tokenize.h */,
+				53A40707125017810053C8D4 /* process_operations.h */,
 			);
 			path = include;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		53203290124FF9920032C196 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				53203291124FF9920032C196 /* .main.c.swo */,
 				53203292124FF9920032C196 /* main.c */,
 				53203294124FF9920032C196 /* vector.c */,
 			);
 			path = src;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
+		};
+		533673801250049E002DF609 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				53203288124FF9920032C196 /* bin */,
+				5320328A124FF9920032C196 /* include */,
+				5320328E124FF9920032C196 /* Makefile */,
+				5320328F124FF9920032C196 /* README */,
+				53203290124FF9920032C196 /* src */,
+			);
+			name = Source;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -155,7 +155,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 53203271124FF8E10032C196 /* Build configuration list for PBXProject "xpto" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -176,8 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53203299124FF9920032C196 /* Makefile in Sources */,
-				5320329C124FF9920032C196 /* main.c in Sources */,
 				5320329E124FF9920032C196 /* vector.c in Sources */,
+				53A406C3125011080053C8D4 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,20 +4,21 @@
 
 #include "type.h"
 
-typedef struct {
+typedef struct process {
+	struct process *next;
   char **argv;                /* argumentos a serem passados para o processo */
   pid_t pid;                  /* process ID */
   char completed;             /* true se processo tiver terminado */
   char stopped;               /* true se processo estiver 'parado' */
-  int status;                 /* valor do status */
+  //int status;                 /* valor do status */
 } process;
 
 typedef struct {
-  //struct job *next;           /* proximo job ativo */
   process *process;           /* processo nesse job */
   pid_t pgid;                 /* process group ID */
   //char notified;              /* true se usuario pediu para parar o job */
 } job;
+
 
 job *new_job(vector *tokens) {
   process *p = (process *)malloc(sizeof(process));
@@ -28,9 +29,14 @@ job *new_job(vector *tokens) {
   p->argv = (char **)tokens->content;
   p->stopped = FALSE;
   p->completed = FALSE;
+	p->next = NULL;
+	p->pid = 0;
+	
+	return j;
 }
 
-/* busca um job ativo com o pgid dado. */
+/*
+// busca um job ativo com o pgid dado.
 job *find_job (pid_t pgid) {
   job *j;
      
@@ -41,7 +47,7 @@ job *find_job (pid_t pgid) {
   return NULL;
 }
      
-/* Return true if all processes in the job have stopped or completed.  */
+// Return true if all processes in the job have stopped or completed.
 BOOL job_is_stopped (job *j) {
   process *p;
      
@@ -51,7 +57,7 @@ BOOL job_is_stopped (job *j) {
   return TRUE;
 }
 
-/* Return true if all processes in the job have completed.  */
+// Return true if all processes in the job have completed.
 BOOL job_is_completed (job *j) {
   process *p;
      
@@ -59,7 +65,6 @@ BOOL job_is_completed (job *j) {
     if (!p->completed)
       return FALSE;
   return TRUE;
-}
-
+}*/
 
 #endif

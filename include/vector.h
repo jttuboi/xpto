@@ -24,7 +24,7 @@ void* back(vector* v);
 
 void insert(vector* v, size_t pos, void* el);
 
-void erase(vector* v, size_t pos, void* el);
+void erase(vector* v, size_t pos);
 
 vector* new_vector();
 
