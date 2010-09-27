@@ -16,15 +16,19 @@ typedef struct process {
 typedef struct {
   process *process;           /* processo nesse job */
   pid_t pgid;                 /* process group ID */
+	pid_t jid;									/* job id */
   //char notified;              /* true se usuario pediu para parar o job */
 } job;
 
 
 job *new_job(vector *tokens) {
+	static int next_jid = 1;
+
   process *p = (process *)malloc(sizeof(process));
   job *j = (job *)malloc(sizeof(job));
   
   j->process = p;
+	j->jid = next_jid++;
 
   p->argv = (char **)tokens->content;
   p->stopped = FALSE;

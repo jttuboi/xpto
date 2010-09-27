@@ -37,6 +37,28 @@ shell_conf *init_shell() {
 	return sc;
 }
 
+void show_jobs(vector *jobs) { 
+	int i;
+
+	for (i = 0; i < jobs->size; i++) {
+		job *j = (job *) jobs->content[i];
+		printf("[%d]\tStatus\t%s\n", j->jid, (char *)j->process->argv[0]);
+	}
+
+}
+
+void change_directory(vector *tokens) {
+
+	if (tokens->size == 1) {
+		chdir(getenv("HOME"));
+	} else { 
+		if (chdir((char *) tokens->content[1]) == -1) {
+			printf("%s: no such directory.\n", (char *) tokens->content[1]);
+		}
+	}
+
+}
+
 int main (int argc, char** argv, char** envp) {
   BOOL quit;
   char *command = (char*)malloc(100*sizeof(char));
@@ -57,9 +79,9 @@ int main (int argc, char** argv, char** envp) {
 			if (strcmp(element(tokens, 0), "exit") == 0 || strcmp(element(tokens, 0), "quit") == 0) {
 				quit = TRUE;
 			} else if (strcmp(element(tokens, 0), "jobs") == 0) {
-				//show_jobs();
+				show_jobs(jobs);
 			} else if (strcmp(element(tokens, 0), "cd") == 0) {
-				//show_content();
+				change_directory(tokens);
 			} else if (strcmp(element(tokens, 0), "pwd") == 0) {
 				//show_path();
 			} else {
