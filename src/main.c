@@ -11,27 +11,29 @@
 
 #include "type.h"
 
-
-
-
-
 shell_conf *init_shell() {
 	shell_conf *sc = (shell_conf*)malloc(sizeof(shell_conf));
 	
 	sc->pid = getpid();
 	sc->descriptor = STDIN_FILENO;
 	sc->is_interactive = isatty(sc->descriptor);
-	
-	setpgid(sc->pid, sc->pid);
-	sc->pgid = getpgrp();
-	if (sc->pid != sc->pgid) {
-		printf("Error, the shell is not process group leader");
-		exit(EXIT_FAILURE);
-	}	
-	
-	//tcsetpgrp(sc->descriptor, sc->pgid);
 
+	//if (sc->is_interactive) { 
+	//	while(tcgetpgrp(sc->descriptor) != (sc->pgid = getpgrp()))
+	//		kill(sc->pid, SIGTTIN);
 	
+	
+		signal(SIGTTOU, SIG_IGN);
+		setpgid(sc->pid, sc->pid);
+		sc->pgid = getpgrp();
+		if (sc->pid != sc->pgid) {
+			printf("Error, the shell is not process group leader");
+			exit(EXIT_FAILURE);
+		}	
+	
+		tcsetpgrp(sc->descriptor, sc->pgid);
+	//}
+
 	return sc;
 }
 
@@ -47,8 +49,8 @@ int main (int argc, char** argv, char** envp) {
   quit = FALSE;
   while (!quit) {
     printf("B1> ");
-    fgets(command, 100, stdin);
-        
+		fgets(command, 100, stdin);
+    
     tokens = split_string(command, " \n");
         
     if (tokens->size != 0) {

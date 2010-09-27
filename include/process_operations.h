@@ -54,6 +54,23 @@ BOOL is_foreground(vector *command) {
   return strcmp(back(command), "&");
 }
 
+void put_foreground(job *j, shell_conf *sc)
+{
+	//j->status = FOREGROUND;
+	tcsetpgrp(sc->descriptor, j->pgid);
+
+	waitpid(j->process->pid, NULL, WUNTRACED);
+  tcsetpgrp(sc->descriptor, sc->pgid);
+}
+
+void put_background(job *j, shell_conf *sc)
+{
+	if (j == NULL)
+  	return;
+
+	tcsetpgrp(sc->descriptor, sc->pgid);
+}
+
 
 void execute_command(vector *tokens, vector *job_vector, shell_conf *shell, char *path, char **envp) {
 	int i;
@@ -107,12 +124,13 @@ void execute_command(vector *tokens, vector *job_vector, shell_conf *shell, char
 		if (!j->pgid)
 			j->pgid = pid;
 		setpgid (pid, j->pgid);
+		if (foreground) {
+			put_foreground(j, shell);
+		} else { 
+			put_background(j, shell);
+		}
 	}
 	
-	waitpid (j->process->pid, NULL, WUNTRACED);
-	
-	/* Put the job into the foreground.  */
-	tcsetpgrp (shell->descriptor, j->pgid);
 		
 }
 
