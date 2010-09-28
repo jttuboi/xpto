@@ -23,15 +23,15 @@ shell_conf *init_shell() {
 	//		kill(sc->pid, SIGTTIN);
 	
 	
-		signal(SIGTTOU, SIG_IGN);
-		setpgid(sc->pid, sc->pid);
-		sc->pgid = getpgrp();
-		if (sc->pid != sc->pgid) {
-			printf("Error, the shell is not process group leader");
-			exit(EXIT_FAILURE);
-		}	
+	signal(SIGTTOU, SIG_IGN);
+	setpgid(sc->pid, sc->pid);
+	sc->pgid = getpgrp();
+	if (sc->pid != sc->pgid) {
+		printf("Error, the shell is not process group leader");
+		exit(EXIT_FAILURE);
+	}	
 	
-		tcsetpgrp(sc->descriptor, sc->pgid);
+	tcsetpgrp(sc->descriptor, sc->pgid);
 	//}
 
 	return sc;
@@ -42,6 +42,8 @@ void show_jobs(vector *jobs) {
 
 	for (i = 0; i < jobs->size; i++) {
 		job *j = (job *) jobs->content[i];
+		//printf("%s\n\n", (char*)j->process->argv[0]);
+		
 		printf("[%d]\tStatus\t%s\n", j->jid, (char *)j->process->argv[0]);
 	}
 
@@ -70,13 +72,12 @@ int main (int argc, char** argv, char** envp) {
   vector *tokens;
   vector *jobs = new_vector();
 
-	shell_conf *shell = init_shell();
-    
+  shell_conf *shell = init_shell();
   quit = FALSE;
   while (!quit) {
-    printf("B1> ");
+		printf("%s B1> ",getcwd(NULL, 0));
 		fgets(command, 100, stdin);
-    
+    		
     tokens = split_string(command, " \n");
         
     if (tokens->size != 0) {
@@ -84,6 +85,8 @@ int main (int argc, char** argv, char** envp) {
 				quit = TRUE;
 			} else if (strcmp(element(tokens, 0), "jobs") == 0) {
 				show_jobs(jobs);
+			} else if (strcmp(element(tokens, 0), "fg") == 0) {
+			} else if (strcmp(element(tokens, 0), "bg") == 0) {
 			} else if (strcmp(element(tokens, 0), "cd") == 0) {
 				change_directory(tokens);
 			} else if (strcmp(element(tokens, 0), "pwd") == 0) {
@@ -92,10 +95,12 @@ int main (int argc, char** argv, char** envp) {
 				execute_command(tokens, jobs, shell, path, envp);
 			}
     }
-    
-    delete_vector(tokens);       
-  }    
+	}    
 
+	
+	//TODO: limpar todos os dados dinamicos do programa
+	
+	
   printf("logout\n\n[Process completed]\n");
     
   return 0;

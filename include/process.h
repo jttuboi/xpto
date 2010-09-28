@@ -4,13 +4,16 @@
 
 #include "type.h"
 
+#define FOREGROUND 0
+#define BACKGROUND 1
+#define WAITING_INPUT 2
+
 typedef struct process {
 	struct process *next;
   char **argv;                /* argumentos a serem passados para o processo */
   pid_t pid;                  /* process ID */
   char completed;             /* true se processo tiver terminado */
   char stopped;               /* true se processo estiver 'parado' */
-  //int status;                 /* valor do status */
 } process;
 
 typedef struct {
@@ -18,6 +21,7 @@ typedef struct {
   pid_t pgid;                 /* process group ID */
 	pid_t jid;									/* job id */
   //char notified;              /* true se usuario pediu para parar o job */
+  int status;                 /* valor do status */
 } job;
 
 
@@ -40,17 +44,6 @@ job *new_job(vector *tokens) {
 }
 
 /*
-// busca um job ativo com o pgid dado.
-job *find_job (pid_t pgid) {
-  job *j;
-     
-  for (j = first_job; j != NULL; j = j->next)
-    if (j->pgid == pgid)
-      return j;
-  
-  return NULL;
-}
-     
 // Return true if all processes in the job have stopped or completed.
 BOOL job_is_stopped (job *j) {
   process *p;

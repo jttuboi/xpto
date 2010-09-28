@@ -16,7 +16,7 @@ int empty(vector* v) {
 
 void* element(vector* v, size_t pos) {
   if (v->size <= pos) {
-    printf("ERRO: Acesso a posicao nao existente\n");
+    printf("ERRO em element: Acesso a posicao nao existente\n");
     exit(1);
   } else {
     return v->content[pos];
@@ -43,20 +43,20 @@ void insert(vector* v, size_t pos, void* el) {
   if (v->size < pos) {
     v->content[pos] = el;
   } else {
-    printf("ERRO: Acesso a posicao nao existente\n");
+    printf("ERRO em insert: Acesso a posicao nao existente\n");
     exit(1);
   }
 }
 
 void erase(vector* v, size_t pos) {
   int i;
-  if (v->size < pos) {
+  if (v->size > pos) {
     free(v->content[pos]);
-    v->size--;
-    for (i = pos; i < v->size; i++)
+    for (i = pos; i < v->size - 1; i++)
       v->content[i] = v->content[i+1];
+		v->content[--v->size] = NULL;
   } else {
-    printf("ERRO: Acesso a posicao nao existente\n");
+    printf("ERRO em erase: Acesso a posicao nao existente\n");
     exit(1);
   }
 }

@@ -12,6 +12,8 @@ typedef struct {
 
 void push_back(void* element, vector* v);
 
+void pop_back(void* element);
+
 size_t size(vector* v);
 
 int empty(vector* v);
