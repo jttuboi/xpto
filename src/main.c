@@ -59,6 +59,10 @@ void change_directory(vector *tokens) {
 
 }
 
+void show_path() {
+	printf("%s\n", getcwd(NULL, 0));
+}
+
 int main (int argc, char** argv, char** envp) {
   BOOL quit;
   char *command = (char*)malloc(100*sizeof(char));
@@ -83,7 +87,7 @@ int main (int argc, char** argv, char** envp) {
 			} else if (strcmp(element(tokens, 0), "cd") == 0) {
 				change_directory(tokens);
 			} else if (strcmp(element(tokens, 0), "pwd") == 0) {
-				//show_path();
+				show_path();
 			} else {
 				execute_command(tokens, jobs, shell, path, envp);
 			}
