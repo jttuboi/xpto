@@ -31,6 +31,7 @@ job *new_job(vector *tokens) {
   process *p = (process *)malloc(sizeof(process));
   job *j = (job *)malloc(sizeof(job));
   
+	j->pgid = 0;
   j->process = p;
 	j->jid = next_jid++;
 
