@@ -28,7 +28,7 @@ shell_conf *init_shell() {
 		exit(EXIT_FAILURE);
 	}	
 	
-	tcsetpgrp(sc->descriptor, sc->pgid);
+	tcsetpgrp(sc->descriptor, sc->pgid); /* passa descritor de entrada para o grupo do shell */
 
 	return sc;
 }
@@ -65,6 +65,31 @@ void change_directory(vector *tokens) {
 		if (chdir((char *) tokens->content[1]) == -1) { /* tenta mudar de diretorio */
 			printf("%s: no such directory.\n", (char *) tokens->content[1]); /* diretoria nao encontrado */
 		}
+	}
+
+}
+
+pid_t jid_from_pid(pid_t pid, vector *jobs) {
+	BOOL found = 0;
+	int i = 0;
+	process *p;
+
+	while(i < jobs->size) {
+		p = ((job *)element(jobs, i))->process;
+		while (!found && p != NULL) {
+			if (p->pid == pid)
+				found = 1;
+			p = p->next;
+		}
+		i++;
+	}
+
+
+	if (!found) {
+		printf("fg: %d: no such pid\n", pid);
+		return -1;
+	} else {
+		return ((job*)element(jobs, i-1))->jid;
 	}
 
 }
@@ -118,6 +143,8 @@ int main (int argc, char** argv, char** envp) {
   char *path = getenv("PATH");
   vector *tokens;
   vector *jobs = new_vector();
+	char is_jid;
+	pid_t jid;
 
   shell_conf *shell = init_shell();
   quit = FALSE;
@@ -139,7 +166,15 @@ int main (int argc, char** argv, char** envp) {
 				} else if (tokens->size > 2) {
 					printf("fg: unexpected parameter %s\n", (char *) element(tokens, 2));
 				} else {
-					fg(atoi(element(tokens, 1)), jobs, shell);
+						is_jid = ((char* )element(tokens, 1))[0];
+						if (is_jid == '%') {
+								fg(atoi(element(tokens, 1) + 1), jobs, shell);
+						} else {
+							jid = jid_from_pid(atoi(element(tokens, 1)), jobs);
+							if (jid != -1) {
+								fg(jid, jobs, shell);	
+							}
+						}	
 				}
 			} else if (strcmp(element(tokens, 0), "bg") == 0) {
 				if (tokens->size == 1) {
@@ -159,9 +194,6 @@ int main (int argc, char** argv, char** envp) {
     }
 	}    
 
-	
-	//TODO: limpar todos os dados dinamicos do programa
-	
 	
   printf("logout\n\n[Process completed]\n");
     

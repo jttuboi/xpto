@@ -5,4 +5,4 @@ run:
 	./bin/b1
 
 clean:
-	ls *~ bin/* include/*~ src/*~ .*.swp src/.*.swp include/.*.swp 2> /dev/null | xargs rm -rf 
+	ls *~ bin/* include/*~ src/*~ .*.swp src/.*.swo src/.*.swp  include/.*.swp 2> /dev/null | xargs rm -rf 
