@@ -89,7 +89,7 @@ void launch_foreground(vector *jobs, job *j, shell_conf *sc)
   	if (j->status == STOPPED)
   		return;
   }
-  //delete_job(jobs, j->jid);
+  delete_job(jobs, j->jid);
   tcsetpgrp(sc->descriptor, sc->pgid);
 }
 

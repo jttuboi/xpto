@@ -81,7 +81,7 @@ void execute_command(vector *tokens, vector *job_vector, shell_conf *shell, char
 		setpgid (pid, j->pgid);
 		if (foreground) { /* se o processo estiver em foreground */
 			launch_foreground(jobs, j, shell);	 /* inicia o processo */
-      delete_job(job_vector, j->jid);		 /* remove o job da lista de jobs */
+      //elete_job(job_vector, j->jid);		 /* remove o job da lista de jobs */
 		} else { 
 			launch_background(j, shell); /* inicia o processo em background */
 		}
@@ -264,6 +264,7 @@ void signal_handler(int p)
         j->status = STOPPED;
 				//push_back(j, jobs);
         printf("\n[%d]+   stopped\t   %s\n", j->jid, j->process->argv[0]);
+				printf("jobs->size %d\n", (int) jobs->size);
       }
       return;
     } else {
