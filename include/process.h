@@ -7,6 +7,7 @@
 #define FOREGROUND 0
 #define BACKGROUND 1
 #define WAITING_INPUT 2
+#define STOPPED 3
 
 typedef struct process {
 	struct process *next;
